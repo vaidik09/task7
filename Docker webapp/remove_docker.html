@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Dokcer - The Container Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!--
+Ramayana CSS Template
+https://templatemo.com/tm-529-ramayana
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+<script>
+
+
+  function digital_one(cmd, name, h, b1, b2, p) {
+      var xhr = new XMLHttpRequest();
+      document.getElementById(p).innerHTML = "Docker removed Successfully...";
+      document.getElementById(h).style.display = "none";
+      document.getElementById(b1).style.display = "none";
+      document.getElementById(b2).style.display = "block";
+      var y = document.getElementById(name).value;
+      document.getElementById(name).style.display = "none";
+      xhr.open("GET", "http://13.126.251.202/cgi-bin/digital.py?x=" + cmd + "&y=" + y, true);
+      xhr.send();
+      xhr.onload = function() {
+          var output = xhr.responseText;
+          document.getElementById(p).innerHTML = output;
+      }
+  }
+
+  function digital_one_show(h, i, p, b1, b2) {
+      document.getElementById(h).style.display = "block";
+      document.getElementById(i).style.display = "block";
+      document.getElementById(p).innerHTML = "";
+      document.getElementById(b2).style.display = "block";
+      document.getElementById(b1).style.display = "none";
+  }
+  </script>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <center><a href="index.html">Docker</a></center>
+              </div>
+            </header>
+
+
+            <!-- Forms -->
+            <section class="forms">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <center><h2>Remove Container</h2></center>
+                    </div>
+
+                    <br /><br />
+                    <h6 id="l3">Enter Container ID / Name : </h6>
+                    <input type="text" class="form-control" id="rem" placeholder="Container Name/ID" required>
+                    <p id="p4"></p>
+
+                    <br />
+                    <button type="button" id="btnn4" class="btn btn-outline-secondary" onclick="digital_one('rem', 'rem','l3', 'btnn4', 'btnn3', 'p4');">Submit</button>
+                    <br />
+                    <button type="button" id="btnn3" class="btn btn-outline-secondary" onclick="digital_one_show('l3', 'rem', 'p4', 'btnn3', 'btnn4');">Back</button>
+                    <br /><br />
+
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <script>
+              var modal1 = document.getElementById("myModal1");
+              var btn1 = document.getElementById("myBtn1");
+              document.getElementById("btnn3").style.display = "none";
+              var span1 = document.getElementsByClassName("close1")[0];
+              btn1.onclick = function() {
+                  modal1.style.display = "block";
+              }
+              span1.onclick = function() {
+                  modal1.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal1) {
+                      modal1.style.display = "none";
+                  }
+              }
+            </script>
+
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="docker_launch.html">Launch Container</a></li>
+                <li><a href="remove_docker.html">Remove Container</a></li>
+                <li><a href="remove_image.html">Remove Image</a></li>
+                <li><a href="docker_execute.html">Start/Stop</a></li>
+                <li><a href="docker_images.html">Docker Images</a></li>
+                <li><a href="running_container.html">Running Container </a></li>
+              </ul>
+            </nav>
+
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/transition.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</body>
+
+</html>

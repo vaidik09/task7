@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Dokcer - The Container Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!--
+Ramayana CSS Template
+https://templatemo.com/tm-529-ramayana
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+<script>
+
+
+  function digital_two(cmd, img, ver, p, h1, h2, i1, i2, b1, b2) {
+      var xhr = new XMLHttpRequest();
+      document.getElementById(p1).innerHTML = "Output is Coming, Please Wait...";
+      document.getElementById(h1).style.display = "none";
+      document.getElementById(h2).style.display = "none";
+      document.getElementById(i1).style.display = "none";
+      document.getElementById(i2).style.display = "none";
+      document.getElementById(b1).style.display = "none";
+      document.getElementById(b2).style.display = "block";
+      var y = document.getElementById(img).value;
+      var z = document.getElementById(ver).value;
+      xhr.open("GET", "http://192.168.13.239/cgi-bin/digital.py?x=" + cmd + "&y=" + y + "&z=" + z, true);
+      xhr.send();
+      xhr.onload = function() {
+          var output = xhr.responseText;
+          document.getElementById(p1).innerHTML = output;
+      }
+  }
+
+  function digital_two_show(p, h1, h2, i1, i2, b1, b2) {
+      document.getElementById(p).innerHTML = "";
+      document.getElementById(h1).style.display = "block";
+      document.getElementById(h2).style.display = "block";
+      document.getElementById(i1).style.display = "block";
+      document.getElementById(i2).style.display = "block";
+      document.getElementById(b1).style.display = "block";
+      document.getElementById(b2).style.display = "none";
+  }
+  </script>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">Docker</a>
+              </div>
+            </header>
+
+
+            <!-- Forms -->
+            <section class="forms">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2>Launch Container</h2>
+                    </div>
+
+                    <br /><br /><br />
+                    <h6 id="l1">Enter Image Name: </h6>
+                    <input type="text" class="form-control" id="name" placeholder="Image" required>
+                    <br /><br />
+                    <h6 id="l2">Enter Version: </h6>
+                    <input type="text" class="form-control" id="ver" placeholder="Version" required>
+                    <p id="p3"></p>
+                    <button type="button" id="btnn2" class="btn btn-outline-secondary" onclick="digital_two_show('p3', 'l1', 'l2', 'name', 'ver', 'btnn1', 'btnn2');">Back</button>
+                    <button type="button" id="btnn1" class="btn btn-outline-secondary" onclick="digital_two('run', 'name', 'ver', 'p3', 'l1', 'l2', 'name', 'ver', 'btnn1', 'btnn2')">Submit</button>
+                    <br /><br /><br />
+
+
+                  </div>
+
+            </section>
+
+            <script>
+                var modal = document.getElementById("myModal");
+                var btn = document.getElementById("myBtn");
+                document.getElementById("btnn2").style.display = "none";
+                var span = document.getElementsByClassName("close")[0];
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+
+            <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="docker_launch.html">Launch Container</a></li>
+                <li><a href="remove_docker.html">Remove Container</a></li>
+                <li><a href="remove_image.html">Remove Image</a></li>
+                <li><a href="docker_execute.html">Docker Execute</a></li>
+                <li><a href="docker_images.html">Docker Images</a></li>
+                <li><a href="running_container.html">Running Container </a></li>
+              </ul>
+            </nav>
+
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/transition.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</body>
+
+</html>
